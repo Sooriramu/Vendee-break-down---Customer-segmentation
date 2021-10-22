@@ -1,4 +1,4 @@
-# Vendee-break-down-Customer-segmentation-
+# Vendee-break-down-Customer-segmentation
 
 Developed based on the concept of customer segmentation.
 Using clustering technique (Machine Learning), customers are grouped based on various criteria such as
