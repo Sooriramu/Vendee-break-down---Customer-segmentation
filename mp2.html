@@ -1,0 +1,290 @@
+<html>
+    <head>
+        <title>FINAL ANALYSIS REPORT</title>
+    </head>
+
+    <style>
+        body{
+         background-color: rgba(0, 0, 0, 0.6);
+         font-family: arial, sans-serif;
+         color:chartreuse;
+         font-size:30px;
+         text-shadow: 2px 2px 2px black, 2px 2px 2px blue, 2px 2px 2px darkblue;
+        }
+        .center{
+            display:block;
+            margin-left: auto;
+            margin-right: auto;
+            width:50%;
+        }
+        .cb{
+            font-size: 25px;
+            border:inset;
+            border-color: rgb(156, 146, 189);
+            border-width:4px;
+        }
+        .op:hover{
+            background-color:chartreuse;
+        }
+        p{
+            text-align:center;
+        }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 80%;
+            font-size:22px;
+            margin-left:auto; 
+            margin-right:auto;
+        }
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            /* padding: 8px; */
+            padding-top:15px;
+            padding-bottom:15px;
+        }
+
+        tr:nth-child(even) {
+        background-color: #00c1f1;
+        }
+        ::-webkit-scrollbar{
+            width:18px;
+        }
+        ::-webkit-scrollbar-thumb{
+            background:linear-gradient(transparent,#30ff00);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover{
+            background:linear-gradient(transparent,#00c6ff);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar:horizontal{
+            display: none;
+        }
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: 'Quicksand',sans-serif;
+        }
+        .seca{
+            position: relative;
+            width:100%;
+            height:80vh;
+            overflow: hidden;
+            background-image: url("https://www.bgadvisorscpa.com/images/blog139.jpg");
+            background-color: #cccccc;
+            background-attachment: fixed;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            clip-path:circle(180vh at 50% -100vh);
+        }
+        .seca .content {
+            max-width: 1000px;
+            text-align: center;
+        }
+        .seca .content h2 {
+            font-size: 5em;
+            color:#fff;
+            font-weight: 700;
+        }
+
+    </style>
+
+    <script>
+        
+        function fun1(){
+            // alert("In");
+            document.getElementById('myImageID1').src="/static/dailysales.png?" + new Date().getTime();
+            document.getElementById('myImageID2').src="/static/total-sales-by-days.png?" + new Date().getTime();
+            document.getElementById('myImageID3').src="/static/monthly_sales.png?" + new Date().getTime();
+            document.getElementById('myImageID4').src="/static/country_overall_sales.png?" + new Date().getTime();
+            document.getElementById('myImageID5').src="/static/hrssales.png?" + new Date().getTime();
+            document.getElementById('myImageID6').src="/static/cid-amnt.png?" + new Date().getTime();
+            document.getElementById('myImageID7').src="/static/cid-freq.png?" + new Date().getTime();
+            document.getElementById('myImageID8').src="/static/cid-rec.png?" + new Date().getTime();
+        }
+        function fun2(a){
+            // alert("In");
+            // var val = document.getElementById("mySelect").value;
+            var ind = document.getElementById("mySelect").selectedIndex-1;
+            if (a[ind].length==3) {
+                tmp=a[ind][0]
+                document.getElementById("p1").innerHTML=tmp[0]+" -- "+tmp[1]+" -- "+tmp[2]+" -- "+tmp[3]
+                tmp=a[ind][1]
+                document.getElementById("p2").innerHTML=tmp[0]+" -- "+tmp[1]+" -- "+tmp[2]+" -- "+tmp[3]
+                tmp=a[ind][2]
+                document.getElementById("p3").innerHTML=tmp[0]+" -- "+tmp[1]+" -- "+tmp[2]+" -- "+tmp[3]
+            }
+            else if (a[ind].length==2) {
+                tmp=a[ind][0]
+                document.getElementById("p1").innerHTML=tmp[0]+" -- "+tmp[1]+" -- "+tmp[2]+" -- "+tmp[3]
+                tmp=a[ind][1]
+                document.getElementById("p2").innerHTML=tmp[0]+" -- "+tmp[1]+" -- "+tmp[2]+" -- "+tmp[3]
+                document.getElementById("p3").innerHTML=""
+            }
+            else if (a[ind].length==1) {
+                tmp=a[ind][0]
+                document.getElementById("p1").innerHTML=tmp[0]+" -- "+tmp[1]+" -- "+tmp[2]+" -- "+tmp[3]
+                document.getElementById("p2").innerHTML=""
+                document.getElementById("p3").innerHTML=""
+            }
+        }
+        function fun3(a){
+            var ind = document.getElementById("mySelect2").selectedIndex-1;
+            tmp=a[ind]
+            document.getElementById("cc1").innerHTML="Cluster -- "+tmp
+        }
+        
+    </script>
+    
+    <body onload=fun1()>
+        
+        <section class="seca">
+            <div class="content">
+                <h2>FINAL ANALYSIS REPORT</h2>
+            </div>
+            
+        </section>
+        <br>
+        
+        <h3 style="font-family: Algerian; text-align: center; font-size:40px;">DAILY SALES BAR CHART :</h3><br>
+        <img alt="Some error occured" id="myImageID1" class="center"> <br><br>
+        <h3 style="font-family: Algerian; text-align: center; font-size:40px;">HOURLY SALES BAR CHART :</h3><br>
+        <img alt="Some error occured" id="myImageID5" class="center"> <br><br>
+        <h3 style="font-family: Algerian; text-align: center; font-size:40px;">DAYS OF WEEK - SALES :</h3><br>
+        <img alt="Some error occured" id="myImageID2" class="center"> <br><br>
+        <h3 style="font-family: Algerian; text-align: center; font-size:40px;">MONTHLY SALES BAR CHART :</h3><br>
+        <img alt="Some error occured" id="myImageID3" class="center"> <br><br>
+        <h3 style="font-family: Algerian; text-align: center; font-size:40px;">COUNTRYWISE OVERALL SALES :</h3><br>
+        <img alt="Some error occured" id="myImageID4" class="center"> <br><br>
+
+        <h2 style="font-family: Algerian; text-align: center; font-size:40px;">Top buyers of each product :</h2><br>
+
+        <label style="text-align:center;">&emsp;Select a Product :</label>
+        <select id="mySelect"  size="1" class="cb" onfocus='this.size=8;' onblur='this.size=1;' 
+        onclick='this.size=1; this.blur(); fun2({{finaltopcust}});'>
+            <option hidden disabled selected value class="op"> -- Select an option -- </option>
+            {%for i in descunique%}
+                <option value={{i}} class="op">{{i}}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <p style="text-align:center;">Product name/description -- Customer ID -- Quantity -- Total price</p>
+        <br><br>
+        <p id="p1" value={{p1}} ></p>
+        <p id="p2" value={{p2}} ></p>
+        <p id="p3" value={{p3}} ></p>
+
+        <br><br>
+        
+        <h2 style="font-family: Algerian; text-align: center; font-size:40px;">Overall top buyers in terms of price :</h2><br>
+        
+        <table id="t4">
+            <tr>
+                <th>S.No</th>
+                <th>Customer ID</th>
+                <th>Price</th>
+            </tr>
+            {% for i in range(10) %}
+
+                <tr>
+                    <td>{{i+1}}</td>
+                    <td>{{topcust_top10[i][0]}}</td>
+                    <td>{{topcust_top10[i][1]}}</td>
+                </tr>
+
+            {% endfor %}
+        </table>
+        <br><br>
+
+        <h2 style="font-family: Algerian; text-align: center; font-size:40px;">Overall top sold products in terms of quantity :</h2><br>
+        
+        <table id="t1">
+            <tr>
+                <th>S.No</th>
+                <th>Product name/Description</th>
+                <th>Quantity</th>
+            </tr>
+            {% for i in range(10) %}
+
+                <tr>
+                    <td>{{i+1}}</td>
+                    <td>{{allqntsales_top10[i][0]}}</td>
+                    <td>{{allqntsales_top10[i][1]}}</td>
+                </tr>
+
+            {% endfor %}
+        </table>
+        <br><br>
+
+        <h2 style="font-family: Algerian; text-align: center; font-size:40px;">Overall top sold products in terms of price :</h2><br>
+        
+        <table id="t2">
+            <tr>
+                <th>S.No</th>
+                <th>Product name/Description</th>
+                <th>Price</th>
+            </tr>
+            {% for i in range(10) %}
+
+                <tr>
+                    <td>{{i+1}}</td>
+                    <td>{{alltoppricesales_top10[i][0]}}</td>
+                    <td>{{alltoppricesales_top10[i][1]}}</td>
+                </tr>
+
+            {% endfor %}
+        </table>
+        <br><br>
+
+        <h2 style="font-family: Algerian; text-align: center; font-size:40px;">Top bulk purchases at a single buy :</h2><br>
+        
+        <table id="t3">
+            <tr>
+                <th>S.No</th>
+                <th>Invoice No.</th>
+                <th>Customer ID</th>
+                <th>Price</th>
+            </tr>
+            {% for i in range(10) %}
+
+                <tr>
+                    <td>{{i+1}}</td>
+                    <td>{{allinvprice_top10[i][0]}}</td>
+                    <td>{{allinvprice_top10[i][1]}}</td>
+                    <td>{{allinvprice_top10[i][2]}}</td>
+                </tr>
+
+            {% endfor %}
+        </table>
+        <br><br>
+
+        <p style="text-align:center;">Customers - Clusters</p>
+        <br><br>
+
+        <label style="text-align:center;">&emsp;Customer name / ID :</label>
+        <select id="mySelect2"  size="1" class="cb" onfocus='this.size=8;' onblur='this.size=1;' 
+        onclick='this.size=1; this.blur(); fun3({{cluster}});'>
+            <option hidden disabled selected value class="op"> -- Select customer name / ID -- </option>
+            {%for i in customers%}
+                <option value={{i}} class="op">{{i}}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <p id="cc1" value={{cc1}} ></p>
+        <br><br>
+
+        <h3 style="font-family: Algerian; text-align: center; font-size:40px;">[ Cluster - Amount ] - Visualisation :</h3><br>
+        <img alt="Some error occured" id="myImageID6" class="center"> <br><br>
+        
+        <h3 style="font-family: Algerian; text-align: center; font-size:40px;">[ Cluster - Frequency ] - Visualisation :</h3><br>
+        <img alt="Some error occured" id="myImageID7" class="center"> <br><br>
+
+        <h3 style="font-family: Algerian; text-align: center; font-size:40px;">[ Cluster - Recency ] - Visualisation :</h3><br>
+        <img alt="Some error occured" id="myImageID8" class="center"> <br><br>
+
+    </body>
+</html>

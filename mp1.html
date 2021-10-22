@@ -1,0 +1,344 @@
+<html>
+
+   <style>
+      body{
+         margin:0;
+         padding:0;
+         background-color: rgba(0, 0, 0, 0.6);
+         text-align: center;
+         font-family: 'Quicksand',sans-serif;
+      }
+      .all{
+         color:chartreuse;
+         /* text-align:center; */
+         font-size:30px;
+         text-shadow: 2px 2px 2px black, 2px 2px 2px blue, 2px 2px 2px darkblue;
+      }
+      .file2{
+         text-align: center;
+         display: inline-block;
+         font-size: 20px;
+      }
+
+      input[type="file"] {
+         display: none;
+      }
+      hr {
+         border: 4px solid rgb(5, 228, 5);
+         box-shadow:0 0 5px #03e9f4,
+                           0 0 25px #03e9f4,
+                           0 0 50px #03e9f4,
+                           0 0 300px #03e9f4;
+      }
+      a{
+         position: relative;
+         display: inline-block;
+         padding: 25px 30px;
+         margin:40px 0;
+         color:#03e9f4;
+         font-size: 30px;
+         text-decoration: none;
+         text-transform: uppercase;
+         overflow:hidden;
+         transition: 0.5s;
+         letter-spacing: 4px;
+         -webkit-box-reflect:below 1px linear-gradient(transparent,#0005);
+         filter:hue-rotate(290deg);
+      }
+      a:hover{
+         background: #03e9f4;
+         color:#050801;
+         box-shadow:0 0 5px #03e9f4,
+                     0 0 25px #03e9f4,
+                     0 0 50px #03e9f4,
+                     0 0 100px #03e9f4;
+      }
+      a span{
+         position: absolute;
+         display: block;
+      }
+      a span:nth-child(1){
+         top:0;
+         left: 0;
+         width:100%;
+         height: 2px;
+         background: linear-gradient(90deg,transparent,#03e9f4);
+         animation:animate1 1s linear infinite;
+      }
+      @keyframes animate1{
+         0%{
+            left:-100%;
+         }
+         50%,100%{
+            left:100%;
+         }
+      }
+      a span:nth-child(2){
+         top:-100%;
+         right: 0;
+         width:2px;
+         height: 100%;
+         background: linear-gradient(180deg,transparent,#03e9f4);
+         animation:animate2 1s linear infinite;
+         animation-delay: 0.25s;
+      }
+      @keyframes animate2{
+         0%{
+            top:-100%;
+         }
+         50%,100%{
+            top:100%;
+         }
+      }
+      a span:nth-child(3){
+         bottom:0;
+         right: -100%;
+         width:100%;
+         height: 2px;
+         background: linear-gradient(270deg,transparent,#03e9f4);
+         animation:animate3 1s linear infinite;
+         animation-delay: 0.5s;
+      }
+      @keyframes animate3{
+         0%{
+            right: -100%;
+         }
+         50%,100%{
+            right:100%;
+         }
+      }
+
+      a span:nth-child(4){
+         bottom:-100%;
+         left: 0;
+         width:2px;
+         height: 100%;
+         background: linear-gradient(360deg,transparent,#03e9f4);
+         animation:animate4 1s linear infinite;
+         animation-delay: 0.75s;
+      }
+      @keyframes animate4{
+         0%{
+            bottom: -100%;
+         }
+         50%,100%{
+            bottom:100%;
+         }
+      }
+      .btn2{
+         filter:hue-rotate(0deg);
+      }
+      ::-webkit-scrollbar{
+            width:18px;
+        }
+        ::-webkit-scrollbar-thumb{
+            background:linear-gradient(transparent,#30ff00);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover{
+            background:linear-gradient(transparent,#00c6ff);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar:horizontal{
+            display: none;
+        }
+
+         section span{
+            position: absolute;
+            height:100%;
+            bottom:30px;
+            background: transparent;
+            border-radius: 50%;
+
+            pointer-events: none;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+            animation:animate 4s linear infinite;
+         }
+         /* section span{
+            position: absolute;
+            height:100%;
+            bottom:-350px;
+            background: transparent;
+            border-radius: 50%;
+
+            pointer-events: none;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+            animation:animate 4s linear infinite;
+         } */
+         section span:before{
+            content:'';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform: scale(0.20) translate(-70%,-70%);
+            background: radial-gradient(#fff,transparent);
+            border-radius: 50%;
+         }
+         @keyframes animate{
+            0%{
+               transform: translateY(0%);
+               opacity:1;
+            }
+            99%{
+               opacity: 1;
+            }
+            100%{
+               transform: translateY(-1200%);
+               opacity: 0;
+            }
+         }
+
+   </style>
+
+   <script>
+      function fun(){
+         if (document.getElementById('file').value==""){
+            alert("No file is selected !!!")
+         }
+         else {
+            // alert(document.getElementById('file').value)
+            document.getElementById('frm').submit();
+         }
+      }
+      function fun2(){
+         document.getElementById("file").click();
+         document.getElementById('file').onchange = function () {
+            // alert('Selected file: ' + this.value);
+            var x=this.value;
+            //alert(x)
+            x=x.slice(12);
+            //alert(x)
+            var fileName = this.value;
+            var fileExtension = fileName.substr(fileName.length - 4);
+            if (fileExtension == "xlsx" || fileExtension == ".xls") {
+               document.getElementById('p1').innerHTML="Selected file -- ( "+x+" )";
+               //alert(document.getElementById('file').value);
+               //document.getElementById('file').value={{file}}
+               //alert(document.getElementById('file').value);
+            }
+            else{
+               alert("Kindly upload a file of .xlsx or .xls format");
+               document.getElementById('p1').innerHTML="";
+               document.getElementById('file').value="";
+            }
+         };
+      }
+   </script>
+
+   <script>
+      document.getElementById("file").onchange = function() {
+		/* alert("IN") */
+      var fileName = this.value;
+      var fileExtension = fileName.substr(fileName.length - 4);
+      
+      alert(fileExtension)
+      if (fileExtension != "xlsx") {
+         alert("That ain't no .xlsx file!");
+      }
+   }
+   </script>
+   <script>
+      function load(){
+         var x=document.getElementById('file').value;
+         if (x!=""){
+            x=x.slice(12);
+            document.getElementById('p1').innerHTML="Selected file -- ( "+x+" )";
+         }
+         else{
+            document.getElementById('p1').innerHTML="";
+            document.getElementById('file').value="";
+         }
+      }
+   </script>
+
+<section>
+   
+   <body onload="load()">
+      <h3 class="all" style="font-family: Algerian; text-align: center; font-size:60px;"> CUSTOMER&emsp;SEGMENTATION&emsp;!!!</h3>
+      <form action="http://localhost:5000/temp" id="frm" method = "POST" enctype="multipart/form-data" >
+         
+         <script type="text/javascript" class="scr1">
+            function createBubble(){
+                const section1=document.querySelector('section');
+                const createElement=document.createElement('span');
+                var size=Math.random() * 60;
+    
+                createElement.style.width=20+size+'px';
+                createElement.style.height=20+size+'px';
+                createElement.style.left=Math.random()* innerWidth+"px";
+                section1.appendChild(createElement);
+    
+                setTimeout(() => {
+                   createElement.remove() 
+                }, 4000);
+    
+            }
+            setInterval(createBubble,200)
+        </script>
+
+         <!-- <script type="text/javascript">
+            function createBubble(){
+               const section=document.querySelector('section');
+               const createElement=document.createElement('span');
+               var size=Math.random() * 60;
+
+               createElement.style.width=20+size+'px';
+               createElement.style.height=20+size+'px';
+               createElement.style.left=Math.random()* innerWidth+"px";
+               section.appendChild(createElement);
+
+               setTimeout(() => {
+                  createElement.remove() 
+               }, 10000);
+
+            }
+            setInterval(createBubble,200)
+         </script> -->
+         
+         <!-- <label for="file" class="all l1">Select a file :</label><br><br> -->
+                  
+         <a for="file" class="btn1" onclick="fun2()">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Upload excel file
+        </a> 
+
+        <br><br><br><br>
+        <p id="p1" class="all"></p>
+        <br>
+
+        <input type = "file" class="file2 all" name = "file" id="file" value={{file}}/> <br><br>
+         <a class="btn2" onclick="fun()">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Submit
+        </a>
+        <br><br><br><br><br><br>
+        
+        <hr>
+        <br><br>
+        <h1 class="all" style="font-family: Algerian; text-align: center; font-size:40px;">SAMPLE&emsp;FILE</h1><br>
+        <img src="https://lh3.googleusercontent.com/RclPIhNE4q37nSXOm6tGA7Qe0yFmH1-QNU07h1v-OOv9kNpEqg9kI5Tns7NQZyL-xn8O8rVv55aImOPvlULAGj9Q8-vO7oqAd4XxKu5_14sLNhYYM_G9hOOpwIL5MF-iE9TcPhtkpp8CBqa80nBgmSZM_dGwwxAynUCy5kvrK_vTSk1ZVBQngKTHj6GC8PjT_rs_uvExxPH0BjVZgRdmNYowUJvwAXROC8Lro4_PUHaPZoSihaGIGk4SxLnhfwab0Wdl2jXg_u7PnllV9GxVzBLd5v9ndhveVmMxuP0IdqQx8Yc4lJXA-ivlualOMZPwlxh9NyfSdwx0djCUBHpi064wXRcTPUlF07lhkrySmY_ANgo0PdC-thk50g8d-6T5mnoqP4WiJBXPyAnX7p-uojLb8gnUvdc9n48DT1jSTzyWu_oSfWuW55UH39GcP3gp1CEd4KUszFjfHSnbCOlEY_aFJAz6UHHp46raikOqFYZ-QBM67Qgn_zH2VOKOp5XVecN4XrVxYWSyTz8toShL8dcqA6KzKw5fxom69UKAI255_BgsnkBSIl44RiJrgXm51zwN2mjVwlyJgVbsCSOMp-2eoGnht60WCPvsmimiZMIZ8nRwXww7FmKjqC1uApjOkhMBF51uRUiPZdBA7ZI_pL6mffFf11et3Ur46ytBb0Lo964TAxr9yH5q8y9bKQ=w1315-h725-no?authuser=0g" title="Sample" alt="Image not available!!!Kindly try again later" width="1000" height="500"><br><br><br>
+        <br><br>
+        <hr>
+        <br>
+
+        <h1 class="all" style="font-family: Algerian; text-align: center; font-size:40px;">FORMAT&emsp;AND&emsp;CONSTRAINTS</h1>
+        <h2 class="all" style="text-align: left;">&emsp;&emsp;&emsp; 1. Number of columns and their names must be same as displayed in sample file.</h2>
+        <h2 class="all" style="text-align: left;">&emsp;&emsp;&emsp; 2. InvoiceNo &emsp;&emsp; - &emsp;Can be numeric / alphanumeric.</h2>
+        <h2 class="all" style="text-align: left;">&emsp;&emsp;&emsp; 3. StockCode&emsp;&emsp;- &emsp;Can be numeric / alphanumeric.</h2>
+        <h2 class="all" style="text-align: left;">&emsp;&emsp;&emsp; 4. Description &emsp;  - &emsp; Product name / description.</h2>
+        <h2 class="all" style="text-align: left;">&emsp;&emsp;&emsp; 5. Quantity&emsp;&emsp;&emsp;- &emsp; Strictly numeric.</h2>
+        <h2 class="all" style="text-align: left;">&emsp;&emsp;&emsp; 6. InvoiceDate &emsp; - &emsp;The format is important - Date-(DD-MM-YYYY) - Time-(HH:MM).</h2>
+        <h2 class="all" style="text-align: left;">&emsp;&emsp;&emsp; 7. UnitPrice &emsp; &emsp; - &emsp;Strictly numeric.</h2>
+        <h2 class="all" style="text-align: left;">&emsp;&emsp;&emsp; 8. CustomerID &emsp; - &emsp;Can be numeric / alphanumeric.</h2>
+        <h2 class="all" style="text-align: left;">&emsp;&emsp;&emsp; 9. Country &emsp;&emsp;&emsp;-&emsp; Name of country.</h2>
+      </section>
+      </form> 
+      
+   </body>
+</html>
